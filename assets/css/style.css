@@ -1,0 +1,28 @@
+body {
+    background-image: url("../images/horror-16.jpg");
+    height: 600px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: 1500px 900px;
+  font-size:1.5em;
+  color:#d63bec;
+  }
+
+ .row,
+ .col-8,
+ .col-4 {
+     border: 1px solid blue;
+ }
+
+ #Title {
+     text-align:center;
+
+ }
+
+ #rules {
+     text-align:center;
+ }
+
+ img {
+     padding-right:20px;
+ }
