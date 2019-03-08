@@ -5,40 +5,41 @@ body {
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: 1500px 900px;
   font-size:1.5em;
-  color:#d63bec;
-  }
-
+  color:	#FCD667;}
  .row,
  .col-8,
  .col-4 {
-     border: 1px solid blue;
+     border: 1px solid #FF8833;
  }
 
- #Title {
-     text-align:center;
-
- }
-
+ #Title,
  #rules {
      text-align:center;
+
  }
 
- img {
-     padding-right:20px;
+
+ #Player-Score {
+     font-size: 2em;
  }
+
 
  #Goal {
      font-size:2.5em;
      padding-right:200px;
  }
 
- #Wins {
+ #Wins,
+ #Losses {
     padding-top:15px;
      font-size:2em;
  }
+
+
  #Text-win,
  #LosesText {
      padding-left:60px;
      padding-top:15px;
  }
+ 
 
