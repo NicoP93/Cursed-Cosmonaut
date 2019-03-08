@@ -6,51 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="webpage reset" type="text/css" href="assets\css\reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets\css\style.css">
-    <link href="https://fonts.googleapis.com/css?family=Bokor" rel="stylesheet">
-    
+    <script src="assets/javascript/game.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <title>Crystal Collector</title>
 </head>
 
 
-    <body>
+<body>
 
- <div class="container">
+    <div class="container">
 
         <div class="row">
             <div class="col-12">
-                <h1 id="Title"> Curse of the Phantom Cosmonaut </h1>
+                <h1 id="Title"> Curse of the Cosmonaut </h1>
             </div>
         </div>
 
-        <div class="row"><!--//explaining rules of the game briefly-->
+        <div class="row">
+            <!--//explaining rules of the game briefly-->
             <div class="col-12" id="rules">
-             <p>You will be given a random number at the start of the game.
-                 By clicking each of the phantoms below you will add a specific amount of points to your total score.
-                 You win the game by matching your total score to  the random number, you lose if your score goes above this number.
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 The value of each phantom is hidden from you until you click on it.
-                 <br>
-                 Each time the game starts, the values of the phantoms will be changed
-             </p>
+                <p>You will be given a random number at the start of the game.
+                    By clicking each of the phantoms below you will add a specific amount of points to your total
+                    score.
+                    You win the game by matching your total score to the random number, you lose if your score goes
+                    above this number.
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    The value of each phantom is hidden from you until you click on it.
+                    <br>
+                    Each time the game starts, the values of the phantoms will be changed
+                </p>
             </div>
         </div>
 
-        <div class="row"><!--he random numnber & trackings wins and losses-->
+        <div class="row">
+            <!--he random numnber & trackings wins and losses-->
             <div class="col-2"></div>
             <div class="col-2">
                 <p>Random Number: </p>
             </div>
-            <div class="col-4"></div>
-            <div class="col-4">
+            <div class="col-4" id="Goal"></div>
+            <div class="col-2">
                 <br>
-                <p>Wins:</p>
+                <p id="Text-win">Wins:</p>
 
             </div>
+            <div class="col-2" id="Wins"></div>
 
         </div>
 
@@ -58,39 +65,111 @@
             <div class="col-4"></div>
 
 
-            <div class="col-1"><img src="assets\images\BlueGhost.jpg"></div>
+            <div class="col-1"><img src="assets\images\BlueGhost.jpg" id="BlueGhost"></div>
 
-            <div class="col-1"><img src="assets\images\PinkGhost.jpg"></div>
+            <div class="col-1"><img src="assets\images\PinkGhost.jpg" id="PinkGhost"></div>
 
-            <div class="col-1"><img src="assets\images\YellowGhost.jpg"></div>
+            <div class="col-1"><img src="assets\images\YellowGhost.jpg" id="YellowGhost"></div>
 
-            <div class="col-1"><img src="assets\images\RedGhost.jpg"></div>
+            <div class="col-1"><img src="assets\images\RedGhost.jpg" id="RedGhost"></div>
 
-            
+
 
             <div class="col-4"></div>
         </div>
 
-        <div class="row"><!--Last part of page-->
+        <div class="row">
+            <!--Last part of page-->
             <div class="col-2"></div>
             <div class="col-2">
                 <p>Total score is:</p>
             </div>
-            <div class="col-4">
+            <div class="col-4" id="Player-Score">
             </div>
-            <div class="col-4">
-                <p>Losses:</p>
-                </div>
+            <div class="col-2">
+                <p id="LosesText">Losses:</p>
+            </div>
+            <div class="col-2" id="Losses"></div>
 
-</div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+
+                var Wins = 0;
+                var Losses = 0;//Well need this to tracks wins and losses
+
+                var PlayerScore = 0;
+                var BlueGhost = Math.floor(Math.random() * 12) + 1;
+                var PinkGhost = Math.floor(Math.random() * 12) + 1;
+                var YellowGhost = Math.floor(Math.random() * 12) + 1;
+                var RedGhost = Math.floor(Math.random() * 12) + 1; //Getting our variables for the ghosts
+
+                var ComputerChoice = Math.floor(Math.random() * 120) + 19; //Not generating accurate results , getting our target score
+                 console.log(PlayerScore);
+                 console.log(ComputerChoice);
+
+               
+                
+                $("#Goal").text(ComputerChoice); //When game starts, load a number between 19 - 120 for computer score 
 
 
+                $("#BlueGhost").on("click", function () { 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+                            PlayerScore += BlueGhost;
+
+                            $("#Player-Score").text(PlayerScore);
+                        });
+
+
+                $("#PinkGhost").on("click", function () { 
+
+
+                            PlayerScore += PinkGhost;
+
+                            $("#Player-Score").text(PlayerScore);
+                        });
+
+
+                $("#YellowGhost").on("click", function () { 
+
+
+                            PlayerScore += YellowGhost;
+
+                            $("#Player-Score").text(PlayerScore);
+                        });
+
+
+                $("#RedGhost").on("click", function () { 
+
+
+                            PlayerScore += RedGhost;
+
+                            $("#Player-Score").text(PlayerScore);
+                        });
+
+
+                //Above we have the buttons adding their score to PlayerScore
+                        if (PlayerScore === ComputerChoice) {
+                            Wins++;
+                            $("#Wins").text(Wins);
+                        }
+
+                        if (PlayerScore > ComputerChoice) {
+                            Losses++;
+                            $("#Lossses").text(Losses);
+                        }
+            });
+            //OKKKKKK!!!! THis is actually working, clicking the blue ghost updates playerscore. IM getting too a point that I cant 
+            //code straight but we have to keep going!!Lets do the other ghosts
+            
+        
+        </script>
+
 
 
 </body>
 
 </html>
+

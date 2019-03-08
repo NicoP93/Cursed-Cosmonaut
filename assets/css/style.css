@@ -26,3 +26,19 @@ body {
  img {
      padding-right:20px;
  }
+
+ #Goal {
+     font-size:2.5em;
+     padding-right:200px;
+ }
+
+ #Wins {
+    padding-top:15px;
+     font-size:2em;
+ }
+ #Text-win,
+ #LosesText {
+     padding-left:60px;
+     padding-top:15px;
+ }
+
